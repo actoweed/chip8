@@ -4,5 +4,11 @@
   "command": "C:\\msys64\\ucrt64\\bin\\clang++.exe -isystem C:/msys64/ucrt64/include/SDL2 -std=gnu++20 -o CMakeFiles\\chip8.dir\\src\\main.cpp.obj -c C:\\Users\\Admin\\projects\\chip8\\src\\main.cpp",
   "file": "C:/Users/Admin/projects/chip8/src/main.cpp",
   "output": "C:/Users/Admin/projects/chip8/build/CMakeFiles/chip8.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Admin/projects/chip8/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\clang++.exe -isystem C:/msys64/ucrt64/include/SDL2 -std=gnu++20 -o CMakeFiles\\chip8.dir\\src\\chip8.cpp.obj -c C:\\Users\\Admin\\projects\\chip8\\src\\chip8.cpp",
+  "file": "C:/Users/Admin/projects/chip8/src/chip8.cpp",
+  "output": "C:/Users/Admin/projects/chip8/build/CMakeFiles/chip8.dir/src/chip8.cpp.obj"
 }
 ]

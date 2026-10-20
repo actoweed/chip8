@@ -1,3 +1,4 @@
+#include "chip8.h"
 #include <SDL_events.h>
 #include <SDL_keycode.h>
 #define SDL_MAIN_HANDLED
@@ -6,6 +7,7 @@
 
 int main (){
 	SDL_SetMainReady();
+	Chip8 chip8;
 	if (SDL_Init(SDL_INIT_VIDEO != 0)) {
 		std::printf("SDL Init error: %s\n", SDL_GetError());
 		return 1;
