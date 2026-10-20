@@ -8,7 +8,8 @@ class Chip8{
 public:
 	bool loadRom(const std::string& path);
 	uint16_t fetch();
-
+	void cycle();
+	const std::array<bool,64*32>& getDisplay() const {return display; }
 private:
 	std::array<uint8_t, 4096> memory{};
 	std::array<uint8_t, 16> V{};

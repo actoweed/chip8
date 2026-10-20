@@ -13,9 +13,6 @@ int main (){
         return 1;
     }
 
-    for (int i = 0; i < 5; i++) {
-        std::printf("%04X\n", chip8.fetch());
-    }
 	if (SDL_Init(SDL_INIT_VIDEO != 0)) {
 		std::printf("SDL Init error: %s\n", SDL_GetError());
 		return 1;
@@ -31,8 +28,24 @@ int main (){
 				running = false;
 			} 
 		}
-		SDL_SetRenderDrawColor(renderer, 120,20,40,255);
+		for (int i = 0; i < 10; i++) {
+		    chip8.cycle();
+		}
+
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
+
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+		const auto& display = chip8.getDisplay();
+		for (int y = 0; y < 32; y++) {
+		    for (int x = 0; x < 64; x++) {
+			if (display[y * 64 + x]) {
+			    SDL_Rect pixel{x * 10, y * 10, 10, 10};
+			    SDL_RenderFillRect(renderer, &pixel);
+			}
+		    }
+		}
+
 		SDL_RenderPresent(renderer);
 		
 
