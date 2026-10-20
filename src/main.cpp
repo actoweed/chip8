@@ -8,6 +8,14 @@
 int main (){
 	SDL_SetMainReady();
 	Chip8 chip8;
+	    if (!chip8.loadRom("roms/2-ibm-logo.ch8")) {
+        std::printf("Failed to load ROM\n");
+        return 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        std::printf("%04X\n", chip8.fetch());
+    }
 	if (SDL_Init(SDL_INIT_VIDEO != 0)) {
 		std::printf("SDL Init error: %s\n", SDL_GetError());
 		return 1;
