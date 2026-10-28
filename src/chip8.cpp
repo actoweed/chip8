@@ -53,11 +53,11 @@ void Chip8::cycle() {
                          pc = nnn;
                          break;
 
-                case 0x6:                     // 6XNN: VX = NN
+                case 0x6:                     // 6XNN: V[x] = NN
                         V[x] = nn;
                         break;
 
-                case 0x7:                     // 7XNN: VX += NN
+                case 0x7:                     // 7XNN: V[x] += NN
                         V[x] += nn;
                         break;
 
@@ -88,6 +88,60 @@ void Chip8::cycle() {
                                 pc += 2;
                         }
                         break;
+
+                case 0x8:
+                        switch(n) {
+                                case 0x0:
+                                        V[x] = V[y];
+                                        break;
+
+                                case 0x1:
+                                        V[x] = V[x] | V[y];
+                                        break;
+
+                                case 0x2:
+                                        V[x] = V[x] & V[y];
+                                        break;
+
+                                case 0x3:
+                                        V[x] = V[x] ^ V[y];
+                                        break;
+
+                                case 0x4: {
+                                        const int sum = V[x] + V[y];
+                                        const uint8_t flag = sum > 255;
+                                        V[x] = sum & 0xFF;
+                                        V[0xF] = flag;
+                                        break;
+                                        }
+
+                                case 0x5: {
+                                        const uint8_t flag = V[x] >= V[y];   // сравнить ДО вычитания
+                                        V[x] = V[x] - V[y];
+                                        V[0xF] = flag;
+                                        break;
+                                        }
+
+                                case 0x6:{
+                                        const uint8_t flag = V[y] & 1;
+                                        V[x] = V[y] >> 1;
+                                        V[0xF] = flag;
+                                        break;
+                                }
+                                case 0x7: {
+                                        const uint8_t flag = V[y] >= V[x];
+                                        V[x] = V[y] - V[x];
+                                        V[0xF] = flag;
+                                        break;
+                                }
+                                case 0xE: {
+                                        const uint8_t flag = (V[y] >> 7) & 1;
+                                        V[x] = V[y] << 1;
+                                        V[0xF] = flag;
+                                        break;
+                                }
+                                break;
+                        }
 
                 case 0x9:
                         if (V[x] != V[y]) {

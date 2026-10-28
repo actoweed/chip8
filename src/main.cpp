@@ -8,7 +8,7 @@
 int main (){
 	SDL_SetMainReady();
 	Chip8 chip8;
-	    if (!chip8.loadRom("roms/3-corax+.ch8")) {
+	    if (!chip8.loadRom("roms/4-flags.ch8")) {
         std::printf("Failed to load ROM\n");
         return 1;
     }
