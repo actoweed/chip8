@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/mikhailvidyaev/projects/chip8/chip8/build-mac",
+  "command": "/usr/bin/c++  -isystem /opt/homebrew/include -isystem /opt/homebrew/include/SDL2 -std=gnu++20 -arch arm64 -o CMakeFiles/chip8.dir/src/main.cpp.o -c /Users/mikhailvidyaev/projects/chip8/chip8/src/main.cpp",
+  "file": "/Users/mikhailvidyaev/projects/chip8/chip8/src/main.cpp",
+  "output": "CMakeFiles/chip8.dir/src/main.cpp.o"
+},
+{
+  "directory": "/Users/mikhailvidyaev/projects/chip8/chip8/build-mac",
+  "command": "/usr/bin/c++  -isystem /opt/homebrew/include -isystem /opt/homebrew/include/SDL2 -std=gnu++20 -arch arm64 -o CMakeFiles/chip8.dir/src/chip8.cpp.o -c /Users/mikhailvidyaev/projects/chip8/chip8/src/chip8.cpp",
+  "file": "/Users/mikhailvidyaev/projects/chip8/chip8/src/chip8.cpp",
+  "output": "CMakeFiles/chip8.dir/src/chip8.cpp.o"
+}
+]

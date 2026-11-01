@@ -142,6 +142,33 @@ void Chip8::cycle() {
                                 }
                                 break;
                         }
+                case 0xF:
+                        switch(nn) {
+                                case 0x1E:
+                                        I = I + V[x];
+                                        break;
+                                case 0x33:
+                                        memory [I] = V[x] / 100;
+                                        memory[I + 1] = (V[x] / 10) % 10;
+                                        memory[I + 2] = V[x] %10;
+                                        break;
+                                case 0x55:
+                                        for (int i = 0; i <= x; i++) {
+                                                memory[I + i] = V[i];
+                                        }
+                                        I += x + 1;
+                                        break;
+                                case 0x65: 
+                                        for (int i = 0; i <= x; i++) {
+                                                V[i] = memory[I + i];
+                                        }
+                                        I += x + 1;
+                                        break;
+                                default:
+                                        std::printf("Unknown opcode: %04X\n", opcode);
+                                        break;
+                        }
+                        break;
 
                 case 0x9:
                         if (V[x] != V[y]) {

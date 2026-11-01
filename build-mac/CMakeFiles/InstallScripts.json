@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/mikhailvidyaev/projects/chip8/chip8/build-mac/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
