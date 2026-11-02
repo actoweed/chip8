@@ -142,10 +142,11 @@ void Chip8::cycle() {
                                 }
                                 break;
                         }
+                        break;
                 case 0xF:
                         switch(nn) {
                                 case 0x1E:
-                                        I = I + V[x];
+                                        I += V[x];
                                         break;
                                 case 0x33:
                                         memory [I] = V[x] / 100;
@@ -180,7 +181,7 @@ void Chip8::cycle() {
                         I = nnn;
                         break;
 
-                case 0xD: {                   // DXYN: нарисовать спрайт
+                case 0xD: {// DXYN: нарисовать спрайт
                         const uint8_t startX = V[x] % 64;
                         const uint8_t startY = V[y] % 32;
                         V[0xF] = 0;
