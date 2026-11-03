@@ -6,10 +6,12 @@
 class Chip8{
 
 public:
+	Chip8();
 	bool loadRom(const std::string& path);
 	uint16_t fetch();
 	void cycle();
 	const std::array<bool,64*32>& getDisplay() const {return display; }
+	void tickTimers(); 
 private:
 	std::array<uint8_t, 4096> memory{};
 	std::array<uint8_t, 16> V{};

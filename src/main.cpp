@@ -31,6 +31,7 @@ int main (){
 		for (int i = 0; i < 10; i++) {
 		    chip8.cycle();
 		}
+		chip8.tickTimers();
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
